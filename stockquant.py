@@ -20,9 +20,9 @@ soup=BeautifulSoup(g_html,'html.parser')
 wrapper=list(map(str,soup.select('.item_title')[5::]))
 result=[]
 for i in wrapper:
-    result.append(i[25:len(i)-7])
+    result.append(i[25:len(i)-7])   #making trend word list from naver
 
-search_list=[i for i in result if i in stocklist]
+search_list=[i for i in result if i in stocklist]   
 
 if len(search_list)==0: print('not found')
 else:
@@ -31,14 +31,14 @@ else:
         url=baseUrl+quote_plus(plusUrl)
         driver=webdriver.Chrome()
         driver.get(url)
-        html=driver.page_source
-        soup=BeautifulSoup(html,'html.parser')
+        #html=driver.page_source
+        #soup=BeautifulSoup(html,'html.parser')
 
         #r=soup.select('.r')
         #for i in r:
          #   print(i.select_one('.LC201b.DKV0Md').text)
           #  print(i.select_one('.iUh30.bc.tjvcx').text)
            # print(i.a.attrs['href'])
-            #print()
+            #print()   these are not necessiary.
     
     
